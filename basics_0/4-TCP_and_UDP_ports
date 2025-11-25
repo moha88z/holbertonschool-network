@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
-# This script displays all listening TCP and UDP ports with PID and program name
-
-# Show active Internet connections (only servers) and their PID/program
-echo "Active Internet connections (only servers)"
-ss -tulnp
-
-# Show active UNIX domain sockets (only servers) and their PID/program
-echo -e "\nActive UNIX domain sockets (only servers)"
-ss -xlp
+# ping (5 times) an IP address passed as  argument.
+if [ -z "$1" ]; then
+	echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
+	exit 1
+fi
+ping -c 5 "$1"
